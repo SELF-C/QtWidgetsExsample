@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtWidgetsExsampleClass</class>
+ <widget class="QMainWindow" name="QtWidgetsExsampleClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QtWidgetsExsample</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="msgShowPushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>251</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MessageBox Show</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="directoryPushButton">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>60</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Directory</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>90</y>
+      <width>42</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="directoryLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>491</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="vertexTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>300</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="dataTableWidget">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>120</y>
+      <width>300</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="tableInsertPushButton">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>90</y>
+      <width>301</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Table Insert</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="titleLabel">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>601</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Title Label</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exitPushPushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>330</y>
+      <width>611</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <zorder>directoryLineEdit</zorder>
+   <zorder>msgShowPushButton</zorder>
+   <zorder>directoryPushButton</zorder>
+   <zorder>spinBox</zorder>
+   <zorder>vertexTableWidget</zorder>
+   <zorder>dataTableWidget</zorder>
+   <zorder>tableInsertPushButton</zorder>
+   <zorder>titleLabel</zorder>
+   <zorder>exitPushPushButton</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>640</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionaaaa">
+   <property name="text">
+    <string>aaaa</string>
+   </property>
+  </action>
+  <action name="actionQt_Version">
+   <property name="text">
+    <string>Qt Version</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="QtWidgetsExsample.qrc"/>
+ </resources>
+ <connections/>
+</ui>

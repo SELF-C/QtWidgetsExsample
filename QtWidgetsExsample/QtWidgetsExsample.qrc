@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/QtWidgetsExsample">
+        <file>images/icon/gear.png</file>
+    </qresource>
+</RCC>
