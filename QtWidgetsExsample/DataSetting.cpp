@@ -8,8 +8,8 @@ DataSetting::DataSetting(int index, QWidget* parent) :
     setWindowFlags(Qt::Window);
     setWindowModality(Qt::WindowModal);
 
-    setWindowTitle("Data Setting View");
-    QString str = QString::fromLocal8Bit("データ:%1").arg(index);
+    setWindowTitle(QString::fromLocal8Bit("Data %1 Setting").arg(index));
+    QString str = QString::fromLocal8Bit("データ%1").arg(index);
     ui.label->setText(QString::fromLocal8Bit("データ:%1").arg(index));
 }
 
