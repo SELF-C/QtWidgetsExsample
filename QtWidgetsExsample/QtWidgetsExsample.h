@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsExsample.h"
+#include "DataSetting.h"
 
 class QtWidgetsExsample : public QMainWindow
 {
@@ -11,8 +12,7 @@ public:
     QtWidgetsExsample(QWidget *parent = Q_NULLPTR);
 
 private slots:
-    void showSettingDialog();
-    void buttonInGroupClicked(int);
+    void on_settingPushButton_clicked();
 
     // シグナル/スロットの自動接続
     void on_directoryPushButton_clicked();
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::QtWidgetsExsampleClass ui;
+    DataSetting* setting_ui;
 
     void makeMenu();
     void makeStatusBar();
@@ -33,6 +34,4 @@ private:
     void makePushButton();
     void makeSpinBox();
 
-
-    QButtonGroup* buttonGroup;
 };

@@ -8,6 +8,7 @@ QtWidgetsExsample::QtWidgetsExsample(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+	
 
 	makeMenu();
 	makeStatusBar();
@@ -64,24 +65,6 @@ void QtWidgetsExsample::makePushButton()
 	ui.msgShowPushButton->setText(QString::fromLocal8Bit("メッセージボックスを表示"));
 	ui.tableInsertPushButton->setText(QString::fromLocal8Bit("テーブルを追加"));
 	ui.exitPushPushButton->setText(QString::fromLocal8Bit("終了"));
-
-
-	buttonGroup = new QButtonGroup(this);
-	connect(buttonGroup, SIGNAL(buttonClicked(int)), SLOT(buttonInGroupClicked(int)));
-}
-
-
-
-
-void QtWidgetsExsample::buttonInGroupClicked(int buttonId)
-{
-	QMessageBox* msgBox = new QMessageBox(
-		QMessageBox::Information,
-		QString::fromLocal8Bit("タイトル"),
-		QString::fromLocal8Bit(std::to_string(buttonId).c_str()),
-		QMessageBox::Ok,
-		this);
-	msgBox->exec();
 }
 
 
@@ -96,7 +79,7 @@ void QtWidgetsExsample::makeVertexTableWidget()
 {
 	const std::vector<std::string> HEADERS =
 	{
-		"No", "Res", "X", "Y", "Angle"
+		"index", "X", "Y", "Z", "Angle"
 	};
 
 	const int ROWS = 6;
@@ -115,8 +98,8 @@ void QtWidgetsExsample::makeVertexTableWidget()
 	
 	// ストレッチを設定
 	tw->horizontalHeader()->setStretchLastSection(false);
-	tw->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-	tw->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+	tw->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+	tw->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 	tw->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
 	tw->horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
 
@@ -139,7 +122,7 @@ void QtWidgetsExsample::makeDataTableWidget()
 	tw->setHorizontalHeaderItem(0, new QTableWidgetItem(QString::fromLocal8Bit("data")));
 	tw->setHorizontalHeaderItem(1, new QTableWidgetItem(QString::fromLocal8Bit("icon")));
 
-	// 最終行をストレッチ
+	// ストレッチを設定
 	tw->horizontalHeader()->setStretchLastSection(false);
 	tw->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
 	tw->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
@@ -157,11 +140,14 @@ void QtWidgetsExsample::makeSpinBox()
 }
 
 
-void QtWidgetsExsample::showSettingDialog()
+void QtWidgetsExsample::on_settingPushButton_clicked()
 {
-	QMessageBox msgBox(this);
-	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-	msgBox.setText(QString::fromLocal8Bit("終了しますか？"));
+	QPushButton* button = dynamic_cast<QPushButton*>(sender());
+	QString str = button->objectName().replace("dataSettingBtn", "");
+
+	setting_ui = new DataSetting(str.toInt(), this);
+	setting_ui->show();
+
 }
 
 
@@ -205,16 +191,19 @@ void QtWidgetsExsample::on_tableInsertPushButton_clicked()
 
 	// 設定ボタンをカラムに追加
 	const QSize BUTTON_SIZE = QSize(10, 10);
+	std::string  objName = "dataSettingBtn" + std::to_string(ROW);
+	
 	QPushButton* button = new QPushButton();
 	QIcon icon(":/QtWidgetsExsample/images/icon/gear.png");
+
 	button->setIcon(icon);
 	button->resize(BUTTON_SIZE);
-
+	button->setObjectName(QString::fromLocal8Bit(objName.c_str()));
 
 	tw->setIndexWidget(tw->model()->index(ROW, 1), button);
 
-	button->setVisible(true);
-	buttonGroup->addButton(button);
+	// シグナル/スロットを接続
+	connect(button, &QPushButton::clicked, this, &QtWidgetsExsample::on_settingPushButton_clicked);
 }
 
 void QtWidgetsExsample::on_exitPushPushButton_clicked()
