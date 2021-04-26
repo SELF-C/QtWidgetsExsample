@@ -24,21 +24,27 @@ QtWidgetsExsample::QtWidgetsExsample(QWidget *parent)
 
 void QtWidgetsExsample::makeMenu()
 {
-	// メニューバーにファイルを追加
+	// メニューを追加
 	QMenu* menu_file = new QMenu(QString::fromLocal8Bit("ファイル"), this);
-	QMenu* menu_file_open = new QMenu(QString::fromLocal8Bit("開く"));
-	menu_file->addMenu(menu_file_open);
+
+	// セパレータを追加
+	QAction* actionDirectoryOpen = new QAction(QString::fromLocal8Bit("開く"), this);
+	menu_file->addAction(actionDirectoryOpen);
+
+	connect(actionDirectoryOpen, &QAction::triggered, this, &QtWidgetsExsample::on_directoryPushButton_clicked);
 
 	QAction* actionExit = new QAction(QString::fromLocal8Bit("終了"), this);
-	connect(menu_file, SIGNAL(triggered()), this, SLOT(close()));
 	menu_file->addAction(actionExit);
-
-
+	
+	connect(actionExit, &QAction::triggered, this, &QWidget::close);
 	menuBar()->addMenu(menu_file);
 
-	// メニューバーにヘルプを追加
+	// メニューを追加
 	QMenu* menu_help = new QMenu(QString::fromLocal8Bit("ヘルプ"), this);
-	menu_help->addAction(QString::fromLocal8Bit("バージョン"));
+	QAction* actionVersion = new QAction(QString::fromLocal8Bit("バージョン"), this);
+	menu_help->addAction(actionVersion);
+	
+	connect(actionVersion, &QAction::triggered, this, &QtWidgetsExsample::on_helpMenu_triggered);
 	menuBar()->addMenu(menu_help);
 }
 
@@ -66,8 +72,6 @@ void QtWidgetsExsample::makePushButton()
 	ui.tableInsertPushButton->setText(QString::fromLocal8Bit("テーブルを追加"));
 	ui.exitPushPushButton->setText(QString::fromLocal8Bit("終了"));
 }
-
-
 
 
 void QtWidgetsExsample::makeLineEdit()
@@ -151,6 +155,20 @@ void QtWidgetsExsample::on_settingPushButton_clicked()
 }
 
 
+void QtWidgetsExsample::on_helpMenu_triggered()
+{
+	QString version = QString::fromLocal8Bit("Qt version %1").arg(qVersion());
+
+	QMessageBox* msgBox = new QMessageBox(
+		QMessageBox::NoIcon,
+		QString::fromLocal8Bit("Qtのバージョン情報"),
+		version,
+		QMessageBox::NoButton,
+		this);
+
+	msgBox->exec();
+}
+
 void QtWidgetsExsample::on_directoryPushButton_clicked()
 {
 	QFileDialog::Options options = QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly;
@@ -168,15 +186,10 @@ void QtWidgetsExsample::on_directoryPushButton_clicked()
 
 void QtWidgetsExsample::on_msgShowPushButton_clicked()
 {
-	QMessageBox* msgBox = new QMessageBox(
-		QMessageBox::Information,
+	QMessageBox::information(this,
 		QString::fromLocal8Bit("タイトル"),
-		QString::fromLocal8Bit("メッセージボックスが表示されました"),
-		QMessageBox::Ok,
-		this);
-
-	msgBox->setText(QString::fromLocal8Bit("メッセージボックスが表示されました"));
-	msgBox->exec();
+		QString::fromLocal8Bit("メッセージボックスが表示されました")
+		);
 }
 
 void QtWidgetsExsample::on_tableInsertPushButton_clicked()
@@ -208,11 +221,9 @@ void QtWidgetsExsample::on_tableInsertPushButton_clicked()
 
 void QtWidgetsExsample::on_exitPushPushButton_clicked()
 {
-	QMessageBox msgBox(this);
-	msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-	msgBox.setText(QString::fromLocal8Bit("終了しますか？"));
-
-	int ret = msgBox.exec();
+	int ret = QMessageBox::question(this, 
+		QString::fromLocal8Bit("アプリケーションの終了"),
+		QString::fromLocal8Bit("終了しますか？"));
 
 	switch (ret) {
 	case QMessageBox::Yes:

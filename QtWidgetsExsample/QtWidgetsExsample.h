@@ -13,6 +13,7 @@ public:
 
 private slots:
     void on_settingPushButton_clicked();
+    void on_helpMenu_triggered();
 
     // シグナル/スロットの自動接続
     void on_directoryPushButton_clicked();
