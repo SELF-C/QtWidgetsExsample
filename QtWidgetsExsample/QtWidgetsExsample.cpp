@@ -9,7 +9,6 @@ QtWidgetsExsample::QtWidgetsExsample(QWidget *parent)
 {
     ui.setupUi(this);
 	
-
 	makeMenu();
 	makeStatusBar();
 	makeCentralWidget();
