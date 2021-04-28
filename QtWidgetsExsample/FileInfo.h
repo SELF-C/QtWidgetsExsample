@@ -16,9 +16,10 @@ private:
     Ui::FileInfo ui;
     QFileInfo m_info;
 
+    void makeForm();
     void makeLabel();
-    void makeTextBrowser();
-    void scrollBarPolicyOff(QTextBrowser* obj);
+    void makeLineEdit();
+    void makePushButton();
 
 };
 
