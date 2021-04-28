@@ -30,7 +30,7 @@ void QtWidgetsExsample::makeMenu()
 	QAction* actionDirectoryOpen = new QAction(QString::fromLocal8Bit("開く"), this);
 	menu_file->addAction(actionDirectoryOpen);
 
-	connect(actionDirectoryOpen, &QAction::triggered, this, &QtWidgetsExsample::on_directoryPushButton_clicked);
+	connect(actionDirectoryOpen, &QAction::triggered, this, &QtWidgetsExsample::on_directoryOpenPushButton_clicked);
 
 	QAction* actionExit = new QAction(QString::fromLocal8Bit("終了"), this);
 	menu_file->addAction(actionExit);
@@ -66,7 +66,12 @@ void QtWidgetsExsample::makeLabel()
 
 void QtWidgetsExsample::makePushButton()
 {
-	ui.directoryPushButton->setText(QString::fromLocal8Bit("ディレクトリを選択"));
+	ui.directoryOpenPushButton->setText("");
+	ui.directoryOpenPushButton->setIcon(style()->standardIcon(QStyle::SP_DialogOpenButton));
+
+	ui.fileOpenPushButton->setText("");
+	ui.fileOpenPushButton->setIcon(style()->standardIcon(QStyle::SP_FileIcon));
+
 	ui.msgShowPushButton->setText(QString::fromLocal8Bit("メッセージボックスを表示"));
 	ui.tableInsertPushButton->setText(QString::fromLocal8Bit("テーブルを追加"));
 	ui.exitPushPushButton->setText(QString::fromLocal8Bit("終了"));
@@ -76,6 +81,7 @@ void QtWidgetsExsample::makePushButton()
 void QtWidgetsExsample::makeLineEdit()
 {
 	ui.directoryLineEdit->setPlaceholderText(QString::fromLocal8Bit("フォルダパス"));
+	ui.fileLineEdit->setPlaceholderText(QString::fromLocal8Bit("ファイルパス"));
 }
 
 void QtWidgetsExsample::makeVertexTableWidget()
@@ -146,9 +152,9 @@ void QtWidgetsExsample::makeSpinBox()
 void QtWidgetsExsample::on_settingPushButton_clicked()
 {
 	QPushButton* button = dynamic_cast<QPushButton*>(sender());
-	QString str = button->objectName().replace("dataSettingBtn", "");
+	int index = button->objectName().replace("dataSettingBtn", "").toInt();
 
-	setting_ui = new DataSetting(str.toInt(), this);
+	setting_ui = new DataSetting(index, this);
 	setting_ui->show();
 
 }
@@ -164,23 +170,48 @@ void QtWidgetsExsample::on_helpMenu_triggered()
 		version,
 		QMessageBox::NoButton,
 		this);
-
 	msgBox->exec();
 }
 
-void QtWidgetsExsample::on_directoryPushButton_clicked()
+void QtWidgetsExsample::on_directoryOpenPushButton_clicked()
 {
 	QFileDialog::Options options = QFileDialog::DontResolveSymlinks | QFileDialog::ShowDirsOnly;
 
-	QString strDir = QFileDialog::getExistingDirectory(
+	QString path = QFileDialog::getExistingDirectory(
 		this,
-		QString::fromLocal8Bit("ダイアログタイトル"),
+		QString::fromLocal8Bit("ディレクトリの選択"),
 		QString::fromLocal8Bit("初期ディレクトリ"), options);
 
-	if (!strDir.isEmpty() || ui.directoryLineEdit->text().isEmpty())
+	if (!path.isEmpty() || ui.directoryLineEdit->text().isEmpty())
 	{
-		ui.directoryLineEdit->setText(strDir);
+		ui.directoryLineEdit->setText(path);
 	}
+}
+
+void QtWidgetsExsample::on_fileOpenPushButton_clicked()
+{
+
+	QString path = QFileDialog::getOpenFileName(
+		this,
+		QString::fromLocal8Bit("ファイルの選択"),
+		".",
+		QString::fromLocal8Bit("JSON file(*.json);"));
+
+	if (!path.isEmpty() || ui.directoryLineEdit->text().isEmpty())
+	{
+		ui.fileLineEdit->setText(path);
+	}
+}
+
+void QtWidgetsExsample::on_directoryInfoPushButton_clicked()
+{
+}
+
+void QtWidgetsExsample::on_fileInfoPushButton_clicked()
+{
+	QFileInfo info(ui.fileLineEdit->text());
+	fileinfo_ui = new FileInfo(info, this);
+	fileinfo_ui->show();
 }
 
 void QtWidgetsExsample::on_msgShowPushButton_clicked()

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
+    <width>643</width>
     <height>480</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>330</y>
+      <y>360</y>
       <width>611</width>
       <height>23</height>
      </rect>
@@ -27,25 +27,25 @@
      <string>MessageBox Show</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="directoryPushButton">
+   <widget class="QPushButton" name="directoryOpenPushButton">
     <property name="geometry">
      <rect>
-      <x>510</x>
+      <x>520</x>
       <y>60</y>
-      <width>111</width>
+      <width>31</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Directory</string>
+     <string>Dir</string>
     </property>
    </widget>
    <widget class="QSpinBox" name="spinBox">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>90</y>
-      <width>42</width>
+      <x>580</x>
+      <y>120</y>
+      <width>41</width>
       <height>22</height>
      </rect>
     </property>
@@ -55,7 +55,7 @@
      <rect>
       <x>10</x>
       <y>60</y>
-      <width>491</width>
+      <width>501</width>
       <height>20</height>
      </rect>
     </property>
@@ -64,7 +64,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
+      <y>150</y>
       <width>300</width>
       <height>200</height>
      </rect>
@@ -74,7 +74,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>120</y>
+      <y>150</y>
       <width>300</width>
       <height>200</height>
      </rect>
@@ -84,8 +84,8 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>90</y>
-      <width>301</width>
+      <y>120</y>
+      <width>251</width>
       <height>23</height>
      </rect>
     </property>
@@ -110,7 +110,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>360</y>
+      <y>390</y>
       <width>611</width>
       <height>23</height>
      </rect>
@@ -123,8 +123,8 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
-      <width>251</width>
+      <y>120</y>
+      <width>151</width>
       <height>23</height>
      </rect>
     </property>
@@ -132,9 +132,71 @@
      <string>Json Load</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="jsonSavePushButton">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>120</y>
+      <width>141</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Json Save</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="fileLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>501</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fileOpenPushButton">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>90</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="directoryInfoPushButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>60</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Info</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fileInfoPushButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>90</y>
+      <width>61</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Info</string>
+    </property>
+   </widget>
    <zorder>directoryLineEdit</zorder>
    <zorder>msgShowPushButton</zorder>
-   <zorder>directoryPushButton</zorder>
+   <zorder>directoryOpenPushButton</zorder>
    <zorder>spinBox</zorder>
    <zorder>vertexTableWidget</zorder>
    <zorder>dataTableWidget</zorder>
@@ -142,13 +204,18 @@
    <zorder>titleLabel</zorder>
    <zorder>exitPushPushButton</zorder>
    <zorder>jsonLoadPushButton</zorder>
+   <zorder>jsonSavePushButton</zorder>
+   <zorder>fileLineEdit</zorder>
+   <zorder>fileOpenPushButton</zorder>
+   <zorder>directoryInfoPushButton</zorder>
+   <zorder>fileInfoPushButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>640</width>
+     <width>643</width>
      <height>21</height>
     </rect>
    </property>

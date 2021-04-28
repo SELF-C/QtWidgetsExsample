@@ -43,14 +43,23 @@
     <ClCompile Include="DataSetting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FileInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="DataSetting.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FileInfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="DataSetting.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FileInfo.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_QtWidgetsExsample.h"
 #include "DataSetting.h"
+#include "FileInfo.h"
 
 class QtWidgetsExsample : public QMainWindow
 {
@@ -16,7 +17,10 @@ private slots:
     void on_helpMenu_triggered();
 
     // シグナル/スロットの自動接続
-    void on_directoryPushButton_clicked();
+    void on_directoryOpenPushButton_clicked();
+    void on_fileOpenPushButton_clicked();
+    void on_directoryInfoPushButton_clicked();
+    void on_fileInfoPushButton_clicked();
     void on_msgShowPushButton_clicked();
     void on_tableInsertPushButton_clicked();
     void on_exitPushPushButton_clicked();
@@ -24,6 +28,7 @@ private slots:
 private:
     Ui::QtWidgetsExsampleClass ui;
     DataSetting* setting_ui;
+    FileInfo* fileinfo_ui;
 
     void makeMenu();
     void makeStatusBar();

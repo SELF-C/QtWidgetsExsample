@@ -87,14 +87,19 @@
   <ItemGroup>
     <QtRcc Include="QtWidgetsExsample.qrc" />
     <QtUic Include="DataSetting.ui" />
+    <QtUic Include="FileInfo.ui" />
     <QtUic Include="QtWidgetsExsample.ui" />
     <QtMoc Include="QtWidgetsExsample.h" />
     <ClCompile Include="DataSetting.cpp" />
+    <ClCompile Include="FileInfo.cpp" />
     <ClCompile Include="QtWidgetsExsample.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="DataSetting.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="FileInfo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

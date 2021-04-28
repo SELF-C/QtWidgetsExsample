@@ -12,16 +12,9 @@ class DataSetting : public QWidget
 public:
     DataSetting(int index, QWidget* parent = nullptr);
 
-    int getIndex() {
-        return index;
-    }
-    void setIndex(int idx) {
-        index = idx;
-    }
-
 private:
-    Ui::Form ui;
-    int index;
+    Ui::DataSetting ui;
+    int m_index;
 };
 
 #endif // DATASETTING_H
