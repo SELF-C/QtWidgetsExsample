@@ -13,13 +13,13 @@ public:
     QtWidgetsExsample(QWidget *parent = Q_NULLPTR);
 
 private slots:
-    void on_settingPushButton_clicked();
-    void on_helpMenu_triggered();
+    void on_menuBarHelp_triggered();
+    void on_pushButtoDataSetting_clicked();
 
     // シグナル/スロットの自動接続
     void on_pushButtonDirectoryOpen_clicked();
-    void on_pushButtonFileOpen_clicked();
     void on_pushButtonDirectoryInfo_clicked();
+    void on_pushButtonFileOpen_clicked();
     void on_pushButtonFileInfo_clicked();
     void on_pushButtonMessageBoxShow_clicked();
     void on_pushButtonTableInsert_clicked();
@@ -30,13 +30,13 @@ private:
     DataSetting* ui_setting;
     FileInfo* ui_fileinfo;
 
+    void makeCentralWidget();
     void makeMenu();
     void makeStatusBar();
-    void makeCentralWidget();
     void makeLabel();
     void makeLineEdit();
-    void makeVertexTableWidget();
-    void makeDataTableWidget();
+    void makeTableWidgetVertex();
+    void makeTableWidgetData();
     void makePushButton();
     void makeSpinBox();
 

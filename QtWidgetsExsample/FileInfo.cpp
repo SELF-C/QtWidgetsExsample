@@ -74,6 +74,6 @@ void FileInfo::makeLineEdit()
 
 void FileInfo::makePushButton()
 {
-    ui.pushButtonClose->setText(QString::fromLocal8Bit("I—¹"));
+    ui.pushButtonClose->setText(QString::fromLocal8Bit("•Â‚¶‚é"));
     connect(ui.pushButtonClose, &QPushButton::clicked, this, &QWidget::close);
 }

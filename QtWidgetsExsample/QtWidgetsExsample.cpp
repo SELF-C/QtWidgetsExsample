@@ -14,8 +14,8 @@ QtWidgetsExsample::QtWidgetsExsample(QWidget *parent)
 	makeCentralWidget();
 	makeLabel();
 	makeLineEdit();
-	makeVertexTableWidget();
-	makeDataTableWidget();
+	makeTableWidgetVertex();
+	makeTableWidgetData();
 	makePushButton();
 	makeSpinBox();
 }
@@ -43,7 +43,7 @@ void QtWidgetsExsample::makeMenu()
 	QAction* actionVersion = new QAction(QString::fromLocal8Bit("バージョン"), this);
 	menu_help->addAction(actionVersion);
 	
-	connect(actionVersion, &QAction::triggered, this, &QtWidgetsExsample::on_helpMenu_triggered);
+	connect(actionVersion, &QAction::triggered, this, &QtWidgetsExsample::on_menuBarHelp_triggered);
 	menuBar()->addMenu(menu_help);
 }
 
@@ -84,7 +84,7 @@ void QtWidgetsExsample::makeLineEdit()
 	ui.lineEditFilePath->setPlaceholderText(QString::fromLocal8Bit("ファイルパス"));
 }
 
-void QtWidgetsExsample::makeVertexTableWidget()
+void QtWidgetsExsample::makeTableWidgetData()
 {
 	const std::vector<std::string> HEADERS =
 	{
@@ -117,7 +117,7 @@ void QtWidgetsExsample::makeVertexTableWidget()
 	tw->setSelectionMode(QAbstractItemView::NoSelection);	// 選択不可にする
 }
 
-void QtWidgetsExsample::makeDataTableWidget()
+void QtWidgetsExsample::makeTableWidgetVertex()
 {
 	const int ROWS = 0;
 	const int COLS = 2;
@@ -149,7 +149,7 @@ void QtWidgetsExsample::makeSpinBox()
 }
 
 
-void QtWidgetsExsample::on_settingPushButton_clicked()
+void QtWidgetsExsample::on_pushButtoDataSetting_clicked()
 {
 	QPushButton* button = dynamic_cast<QPushButton*>(sender());
 	int index = button->objectName().replace("dataSettingBtn", "").toInt();
@@ -159,7 +159,7 @@ void QtWidgetsExsample::on_settingPushButton_clicked()
 }
 
 
-void QtWidgetsExsample::on_helpMenu_triggered()
+void QtWidgetsExsample::on_menuBarHelp_triggered()
 {
 	QString version = QString::fromLocal8Bit("Qt version %1").arg(qVersion());
 
@@ -187,6 +187,10 @@ void QtWidgetsExsample::on_pushButtonDirectoryOpen_clicked()
 	}
 }
 
+void QtWidgetsExsample::on_pushButtonDirectoryInfo_clicked()
+{
+}
+
 void QtWidgetsExsample::on_pushButtonFileOpen_clicked()
 {
 
@@ -200,10 +204,6 @@ void QtWidgetsExsample::on_pushButtonFileOpen_clicked()
 	{
 		ui.lineEditFilePath->setText(path);
 	}
-}
-
-void QtWidgetsExsample::on_pushButtonDirectoryInfo_clicked()
-{
 }
 
 void QtWidgetsExsample::on_pushButtonFileInfo_clicked()
@@ -228,7 +228,7 @@ void QtWidgetsExsample::on_pushButtonTableInsert_clicked()
 	tw->insertRow(tw->rowCount());
 
 	// データをカラムに追加
-	QTableWidgetItem* item = new QTableWidgetItem(QString::fromLocal8Bit("データ"));
+	QTableWidgetItem* item = new QTableWidgetItem(QString::fromLocal8Bit("データ%1").arg(ROW));
 	tw->setItem(ROW, 0, item);
 
 	// 設定ボタンをカラムに追加
@@ -245,7 +245,7 @@ void QtWidgetsExsample::on_pushButtonTableInsert_clicked()
 	tw->setIndexWidget(tw->model()->index(ROW, 1), button);
 
 	// シグナル/スロットを接続
-	connect(button, &QPushButton::clicked, this, &QtWidgetsExsample::on_settingPushButton_clicked);
+	connect(button, &QPushButton::clicked, this, &QtWidgetsExsample::on_pushButtoDataSetting_clicked);
 }
 
 void QtWidgetsExsample::on_pushButtonExit_clicked()
