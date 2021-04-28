@@ -14,7 +14,7 @@
    <string>QtWidgetsExsample</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="msgShowPushButton">
+   <widget class="QPushButton" name="pushButtonMessageBoxShow">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -27,7 +27,7 @@
      <string>MessageBox Show</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="directoryOpenPushButton">
+   <widget class="QPushButton" name="pushButtonDirectoryOpen">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -50,7 +50,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="directoryLineEdit">
+   <widget class="QLineEdit" name="lineEditDirectoryPath">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -60,7 +60,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTableWidget" name="vertexTableWidget">
+   <widget class="QTableWidget" name="tableWidgetVertex">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -70,7 +70,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTableWidget" name="dataTableWidget">
+   <widget class="QTableWidget" name="tableWidgetData">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -80,7 +80,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="tableInsertPushButton">
+   <widget class="QPushButton" name="pushButtonTableInsert">
     <property name="geometry">
      <rect>
       <x>320</x>
@@ -93,7 +93,7 @@
      <string>Table Insert</string>
     </property>
    </widget>
-   <widget class="QLabel" name="titleLabel">
+   <widget class="QLabel" name="labelTitle">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -106,7 +106,7 @@
      <string>Title Label</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="exitPushPushButton">
+   <widget class="QPushButton" name="pushButtonExit">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -119,7 +119,7 @@
      <string>Exit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="jsonLoadPushButton">
+   <widget class="QPushButton" name="pushButtonJsonLoad">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -132,7 +132,7 @@
      <string>Json Load</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="jsonSavePushButton">
+   <widget class="QPushButton" name="pushButtonJsonSave">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -145,7 +145,7 @@
      <string>Json Save</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="fileLineEdit">
+   <widget class="QLineEdit" name="lineEditFilePath">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -155,7 +155,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="fileOpenPushButton">
+   <widget class="QPushButton" name="pushButtonFileOpen">
     <property name="geometry">
      <rect>
       <x>520</x>
@@ -168,7 +168,7 @@
      <string>File</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="directoryInfoPushButton">
+   <widget class="QPushButton" name="pushButtonDirectoryInfo">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -181,7 +181,7 @@
      <string>Info</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="fileInfoPushButton">
+   <widget class="QPushButton" name="pushButtonFileInfo">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -194,21 +194,21 @@
      <string>Info</string>
     </property>
    </widget>
-   <zorder>directoryLineEdit</zorder>
-   <zorder>msgShowPushButton</zorder>
-   <zorder>directoryOpenPushButton</zorder>
+   <zorder>lineEditDirectoryPath</zorder>
+   <zorder>pushButtonMessageBoxShow</zorder>
+   <zorder>pushButtonDirectoryOpen</zorder>
    <zorder>spinBox</zorder>
-   <zorder>vertexTableWidget</zorder>
-   <zorder>dataTableWidget</zorder>
-   <zorder>tableInsertPushButton</zorder>
-   <zorder>titleLabel</zorder>
-   <zorder>exitPushPushButton</zorder>
-   <zorder>jsonLoadPushButton</zorder>
-   <zorder>jsonSavePushButton</zorder>
-   <zorder>fileLineEdit</zorder>
-   <zorder>fileOpenPushButton</zorder>
-   <zorder>directoryInfoPushButton</zorder>
-   <zorder>fileInfoPushButton</zorder>
+   <zorder>tableWidgetVertex</zorder>
+   <zorder>tableWidgetData</zorder>
+   <zorder>pushButtonTableInsert</zorder>
+   <zorder>labelTitle</zorder>
+   <zorder>pushButtonExit</zorder>
+   <zorder>pushButtonJsonLoad</zorder>
+   <zorder>pushButtonJsonSave</zorder>
+   <zorder>lineEditFilePath</zorder>
+   <zorder>pushButtonFileOpen</zorder>
+   <zorder>pushButtonDirectoryInfo</zorder>
+   <zorder>pushButtonFileInfo</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

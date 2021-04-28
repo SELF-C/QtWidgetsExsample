@@ -17,13 +17,13 @@ private slots:
     void on_helpMenu_triggered();
 
     // シグナル/スロットの自動接続
-    void on_directoryOpenPushButton_clicked();
-    void on_fileOpenPushButton_clicked();
-    void on_directoryInfoPushButton_clicked();
-    void on_fileInfoPushButton_clicked();
-    void on_msgShowPushButton_clicked();
-    void on_tableInsertPushButton_clicked();
-    void on_exitPushPushButton_clicked();
+    void on_pushButtonDirectoryOpen_clicked();
+    void on_pushButtonFileOpen_clicked();
+    void on_pushButtonDirectoryInfo_clicked();
+    void on_pushButtonFileInfo_clicked();
+    void on_pushButtonMessageBoxShow_clicked();
+    void on_pushButtonTableInsert_clicked();
+    void on_pushButtonExit_clicked();
 
 private:
     Ui::QtWidgetsExsampleClass ui;

@@ -166,7 +166,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>aaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccc</string>
+    <string/>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Normal</enum>
