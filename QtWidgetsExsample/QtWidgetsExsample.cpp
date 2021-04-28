@@ -14,7 +14,7 @@ QtWidgetsExsample::QtWidgetsExsample(QWidget *parent)
 	makeCentralWidget();
 	makeLabel();
 	makeLineEdit();
-	makeTableWidgetVertex();
+	makeTableWidgetJson();
 	makeTableWidgetData();
 	makePushButton();
 	makeSpinBox();
@@ -88,13 +88,13 @@ void QtWidgetsExsample::makeTableWidgetData()
 {
 	const std::vector<std::string> HEADERS =
 	{
-		"index", "x", "y", "z", "w"
+		"Name", "Description", "Account Number"
 	};
 
-	const int ROWS = 6;
+	const int ROWS = 0;
 	const int COLS = HEADERS.size();
 
-	QTableWidget* tw = ui.tableWidgetVertex;
+	QTableWidget* tw = ui.tableWidgetJson;
 	tw->clear();
 	tw->setRowCount(ROWS);
 	tw->setColumnCount(COLS);
@@ -107,17 +107,16 @@ void QtWidgetsExsample::makeTableWidgetData()
 	
 	// ストレッチを設定
 	tw->horizontalHeader()->setStretchLastSection(false);
-	tw->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
-	tw->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+	tw->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+	tw->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
 	tw->horizontalHeader()->setSectionResizeMode(2, QHeaderView::ResizeToContents);
-	tw->horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
 
 	tw->verticalHeader()->setVisible(false);				// 垂直ヘッダーを非表示
 	tw->setEditTriggers(QAbstractItemView::NoEditTriggers);	// セル編集を不可にする
 	tw->setSelectionMode(QAbstractItemView::NoSelection);	// 選択不可にする
 }
 
-void QtWidgetsExsample::makeTableWidgetVertex()
+void QtWidgetsExsample::makeTableWidgetJson()
 {
 	const int ROWS = 0;
 	const int COLS = 2;

@@ -60,7 +60,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidgetVertex">
+   <widget class="QTableWidget" name="tableWidgetJson">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -198,7 +198,7 @@
    <zorder>pushButtonMessageBoxShow</zorder>
    <zorder>pushButtonDirectoryOpen</zorder>
    <zorder>spinBox</zorder>
-   <zorder>tableWidgetVertex</zorder>
+   <zorder>tableWidgetJson</zorder>
    <zorder>tableWidgetData</zorder>
    <zorder>pushButtonTableInsert</zorder>
    <zorder>labelTitle</zorder>

@@ -35,7 +35,7 @@ private:
     void makeStatusBar();
     void makeLabel();
     void makeLineEdit();
-    void makeTableWidgetVertex();
+    void makeTableWidgetJson();
     void makeTableWidgetData();
     void makePushButton();
     void makeSpinBox();
