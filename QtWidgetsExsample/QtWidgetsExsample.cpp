@@ -154,9 +154,8 @@ void QtWidgetsExsample::on_settingPushButton_clicked()
 	QPushButton* button = dynamic_cast<QPushButton*>(sender());
 	int index = button->objectName().replace("dataSettingBtn", "").toInt();
 
-	setting_ui = new DataSetting(index, this);
-	setting_ui->show();
-
+	ui_setting = new DataSetting(index, this);
+	ui_setting->show();
 }
 
 
@@ -210,8 +209,8 @@ void QtWidgetsExsample::on_pushButtonDirectoryInfo_clicked()
 void QtWidgetsExsample::on_pushButtonFileInfo_clicked()
 {
 	QFileInfo info(ui.lineEditFilePath->text());
-	fileinfo_ui = new FileInfo(info, this);
-	fileinfo_ui->show();
+	ui_fileinfo = new FileInfo(info, this);
+	ui_fileinfo->show();
 }
 
 void QtWidgetsExsample::on_pushButtonMessageBoxShow_clicked()

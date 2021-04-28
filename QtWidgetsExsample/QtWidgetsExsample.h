@@ -27,8 +27,8 @@ private slots:
 
 private:
     Ui::QtWidgetsExsampleClass ui;
-    DataSetting* setting_ui;
-    FileInfo* fileinfo_ui;
+    DataSetting* ui_setting;
+    FileInfo* ui_fileinfo;
 
     void makeMenu();
     void makeStatusBar();
